@@ -1,0 +1,23 @@
+{
+  "projects": [
+    {
+      "name": "my-project",
+      "repo": "https://github.com/your/repo.git",
+      "branch": "main",
+      "buildCommand": "npm run build",
+      "docker": {
+        "image": "your-image",
+        "containername": "your-container",
+        "path": "./Dockerfile"
+      },
+      "internal": {
+        "logdir": "./logs",
+        "maxLogDirSize": 5242880,
+        "logLevel": "info"
+      },
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}

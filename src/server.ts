@@ -1,6 +1,12 @@
-import app from './app';
-import { PORT } from './_config/env';
+// server.ts
+import express from 'express';
+import webhookRouter from './routes/webhook';
+import { CONFIG } from './_config/constatns';
 
-app.listen(PORT, () => {
-    console.log(`[RAY-SERVER] Listening on port ${PORT}`);
+const app = express();
+
+app.use('/webhook', webhookRouter);
+
+app.listen(CONFIG.PORT, () => {
+    console.log(`Auto Deploy Server running at ${CONFIG.BASE_URL}`);
 });

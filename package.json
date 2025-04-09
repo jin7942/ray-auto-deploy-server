@@ -21,6 +21,8 @@
     "homepage": "https://github.com/jin7942/ray-auto-deploy-server#readme",
     "description": "",
     "dependencies": {
+        "@jin7942/ray": "^1.0.1",
+        "@jin7942/utils": "^1.0.0",
         "dotenv": "^16.4.7",
         "express": "^5.1.0",
         "raw-body": "^3.0.0"
