@@ -65,12 +65,7 @@ npm start
 ## GitHub Webhook Setup
 
 1. Go to `Settings > Webhooks` on your GitHub repository
-2. Payload URL:
-    ```
-    https://YOUR_DOMAIN/webhook
-    ```
-
-````
+2. Payload URL: `https://YOUR_DOMAIN/webhook`
 3. Content type: `application/json`
 4. Secret: Must match the `.env` GITHUB_SECRET
 5. Event type: `Just the push event`
@@ -80,26 +75,26 @@ npm start
 
 ## Tech Stack
 
-- Node.js (Express)
-- TypeScript
-- dotenv
-- raw-body (to get raw payload)
-- RAY deployment library ([github.com/jin7942/ray](https://github.com/jin7942/ray))
+-   Node.js (Express)
+-   TypeScript
+-   raw-body (to get raw payload)
+-   RAY deployment library ([github.com/jin7942/ray](https://github.com/jin7942/ray))
 
 ---
 
 ## Example Output (deploy-status.json)
+
 ```json
 {
-  "project": "ray",
-  "status": "success",
-  "startedAt": "2025-04-09T07:25:00.000Z",
-  "endedAt": "2025-04-09T07:25:10.000Z",
-  "durationSec": 10,
-  "message": "Deployment successful",
-  "logPath": "logs/2025-04-09.log"
+    "project": "ray",
+    "status": "success",
+    "startedAt": "2025-04-09T07:25:00.000Z",
+    "endedAt": "2025-04-09T07:25:10.000Z",
+    "durationSec": 10,
+    "message": "Deployment successful",
+    "logPath": "logs/2025-04-09.log"
 }
-````
+```
 
 ---
 
