@@ -1,4 +1,3 @@
-# 1단계: 빌드
 FROM node:22-alpine AS builder
 
 WORKDIR /app
@@ -8,7 +7,6 @@ RUN apk update && apk upgrade
 RUN npm install
 RUN npm run build
 
-# 2단계: 실행
 FROM node:22-alpine
 
 WORKDIR /app
