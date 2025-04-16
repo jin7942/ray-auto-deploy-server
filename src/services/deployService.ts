@@ -21,7 +21,7 @@ export async function runDeploy(projectName: string): Promise<DeployStatus> {
     const startedAt = new Date();
 
     try {
-        const config = await loadProjectConfig(projectName);
+        const config = await loadProjectConfig(projectName, '/app/ray.config.json');
         const context = createContext(config);
 
         await runRayPipeline(context);
