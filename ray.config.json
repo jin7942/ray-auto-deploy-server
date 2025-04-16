@@ -1,7 +1,7 @@
 {
     "projects": [
         {
-            "name": "used-market-backend",
+            "name": "used_market",
             "repo": "https://github.com/jin7942/used_market.git",
             "branch": "main",
             "docker": {
@@ -22,7 +22,7 @@
             }
         },
         {
-            "name": "upload",
+            "name": "uploadServer",
             "repo": "https://github.com/jin7942/uploadServer.git",
             "branch": "master",
             "docker": {
@@ -40,7 +40,7 @@
             }
         },
         {
-            "name": "used-market-frontend",
+            "name": "used_market_frontend",
             "repo": "https://github.com/jin7942/used_market_frontend.git",
             "branch": "main",
             "docker": {
