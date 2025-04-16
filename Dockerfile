@@ -21,6 +21,7 @@
     COPY --from=builder /app/package-lock.json .
     
     RUN apk add --no-cache git
+    RUN apk add --no-cache docker-cli
     RUN npm install --omit=dev
     
     EXPOSE 7979
