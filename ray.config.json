@@ -1,23 +1,61 @@
 {
-  "projects": [
-    {
-      "name": "my-project",
-      "repo": "https://github.com/your/repo.git",
-      "branch": "main",
-      "buildCommand": "npm run build",
-      "docker": {
-        "image": "your-image",
-        "containername": "your-container",
-        "path": "./Dockerfile"
-      },
-      "internal": {
-        "logdir": "./logs",
-        "maxLogDirSize": 5242880,
-        "logLevel": "info"
-      },
-      "env": {
-        "NODE_ENV": "production"
-      }
-    }
-  ]
+    "projects": [
+        {
+            "name": "used-market-backend",
+            "repo": "https://github.com/jin7942/used_market.git",
+            "branch": "main",
+            "docker": {
+                "image": "used-market-backend",
+                "containername": "used-market-backend",
+                "path": "./Dockerfile",
+                "network": ["front-backend", "backend-db", "jin-proxy"],
+                "volumes": ["/srv/env/nextuse-backend/application.yml:/config/application.yml"]
+            },
+            "internal": {
+                "logdir": "/srv/logs/used-market-backend",
+                "maxLogDirSize": 5242880,
+                "logLevel": "info",
+                "envFilePath": ""
+            },
+            "env": {
+                "SPRING_PROFILES_ACTIVE": "prod"
+            }
+        },
+        {
+            "name": "upload",
+            "repo": "https://github.com/jin7942/uploadServer.git",
+            "branch": "master",
+            "docker": {
+                "image": "upload",
+                "containername": "upload",
+                "path": "./Dockerfile",
+                "network": ["front-upload", "jin-proxy"],
+                "volumes": ["/srv/public/:/app/upload"]
+            },
+            "internal": {
+                "logdir": "/srv/logs/upload",
+                "maxLogDirSize": 5242880,
+                "logLevel": "info",
+                "envFilePath": ""
+            }
+        },
+        {
+            "name": "used-market-frontend",
+            "repo": "https://github.com/jin7942/used_market_frontend.git",
+            "branch": "main",
+            "docker": {
+                "image": "used-market-frontend",
+                "containername": "used-market-frontend",
+                "path": "./Dockerfile",
+                "network": ["jin-proxy", "front-backend", "front-upload"],
+                "volumes": []
+            },
+            "internal": {
+                "logdir": "/srv/logs/used-market-frontend",
+                "maxLogDirSize": 5242880,
+                "logLevel": "info",
+                "envFilePath": ""
+            }
+        }
+    ]
 }
