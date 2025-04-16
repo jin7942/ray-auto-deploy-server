@@ -22,14 +22,7 @@ export async function runDeploy(projectName: string): Promise<DeployStatus> {
 
     try {
         const config = await loadProjectConfig(projectName, '/app/ray.config.json');
-        console.log('[DEBUG] config:', config);
-        console.log('[DEBUG] config.name:', config.name);
-        console.log('[DEBUG] typeof config.name:', typeof config.name);
-        console.log('[DEBUG] Object.keys(config):', Object.keys(config));
-
-        const context = createContext(config); // ← 여기서 죽는지 확인
-
-        await runRayPipeline(context);
+        await runRayPipeline(config);
 
         const endedAt = new Date();
         const status: DeployStatus = {
