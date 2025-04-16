@@ -14,17 +14,23 @@ router.post('/', async (req: Request, res: Response): Promise<void> => {
 
         if (!verifySignature(raw, signature, CONFIG.GITHUB_SECRET)) {
             res.status(401).send('Invalid signature');
+            return;
         }
 
         const payload = JSON.parse(raw);
         const projectName = payload.repository?.name;
 
-        if (!projectName) res.status(400).send('Missing repository name');
+        if (!projectName) {
+            res.status(400).send('Missing repository name');
+            return;
+        }
 
         const result = await runDeploy(projectName);
         res.status(200).json(result);
     } catch (err) {
-        res.status(500).send('Deployment failed');
+        if (!res.headersSent) {
+            res.status(500).send('Deployment failed');
+        }
     }
 });
 
