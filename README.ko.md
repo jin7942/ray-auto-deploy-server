@@ -1,5 +1,7 @@
 # RAY-AUTO-DEPLOY-SERVER
 
+![running example](./ray.png)
+
 `RAY-AUTO-DEPLOY-SERVER`는 GitHub Webhook 이벤트를 수신하여, [RAY](https://github.com/jin7942/ray)를 기반으로 자동 배포를 수행하는 **경량 Node.js 서버**입니다.
 
 ## 주요 특징
