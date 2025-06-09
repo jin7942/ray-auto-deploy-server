@@ -5,20 +5,8 @@
             "repo": "https://github.com/jin7942/used_market.git",
             "branch": "main",
             "docker": {
-                "image": "used-market-backend",
-                "containername": "used-market-backend",
-                "path": "./Dockerfile",
-                "network": ["front-backend", "backend-db", "jin-proxy"],
-                "volumes": ["/srv/env/nextuse-backend/application.yml:/config/application.yml"]
-            },
-            "internal": {
-                "logdir": "/srv/logs/used-market-backend",
-                "maxLogDirSize": 5242880,
-                "logLevel": "info",
-                "envFilePath": ""
-            },
-            "env": {
-                "SPRING_PROFILES_ACTIVE": "prod"
+                "type": "compose",
+                "path": "/srv/deploy/nginx-config/deploy/usedmarket/docker-compose.yml"
             }
         },
         {
@@ -26,35 +14,26 @@
             "repo": "https://github.com/jin7942/uploadServer.git",
             "branch": "master",
             "docker": {
-                "image": "upload",
-                "containername": "upload",
-                "path": "./Dockerfile",
-                "network": ["front-upload", "jin-proxy"],
-                "volumes": ["/srv/public/:/app/upload"]
-            },
-            "internal": {
-                "logdir": "/srv/logs/upload",
-                "maxLogDirSize": 5242880,
-                "logLevel": "info",
-                "envFilePath": ""
+                "type": "compose",
+                "path": "/srv/deploy/nginx-config/deploy/usedmarket/docker-compose.yml"
             }
         },
         {
-            "name": "used_market_frontend",
+            "name": "used-market_frontend",
             "repo": "https://github.com/jin7942/used_market_frontend.git",
             "branch": "main",
             "docker": {
-                "image": "used-market-frontend",
-                "containername": "used-market-frontend",
-                "path": "./Dockerfile",
-                "network": ["jin-proxy", "front-backend", "front-upload"],
-                "volumes": []
-            },
-            "internal": {
-                "logdir": "/srv/logs/used-market-frontend",
-                "maxLogDirSize": 5242880,
-                "logLevel": "info",
-                "envFilePath": ""
+                "type": "compose",
+                "path": "/srv/deploy/nginx-config/deploy/usedmarket/docker-compose.yml"
+            }
+        },
+        {
+            "name": "dockwatch",
+            "repo": "https://github.com/jin7942/dockwatch.git",
+            "branch": "main",
+            "docker": {
+                "type": "compose",
+                "path": "/srv/deploy/nginx-config/deploy/dockwatch/docker-compose.yml"
             }
         }
     ]
