@@ -35,6 +35,15 @@
                 "type": "compose",
                 "path": "/srv/deploy/nginx-config/deploy/dockwatch/docker-compose.yml"
             }
+        },
+        {
+            "name": "ray-auto-deploy-server",
+            "repo": "https://github.com/jin7942/ray-auto-deploy-server.git",
+            "branch": "main",
+            "docker": {
+                "type": "compose",
+                "path": "/srv/deploy/nginx-config/deploy/ray-auto-deploy-server/docker-compose.yml"
+            }
         }
     ]
 }
