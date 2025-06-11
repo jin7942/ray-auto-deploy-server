@@ -1,4 +1,4 @@
-import { loadProjectConfig, createContext, runRayPipeline } from '@jin7942/ray';
+import { loadProjectConfig, runRayPipeline } from '@jin7942/ray';
 import { logger } from '@jin7942/utils';
 import path from 'path';
 import fs from 'fs/promises';
@@ -32,7 +32,10 @@ export async function runDeploy(projectName: string): Promise<DeployStatus> {
             endedAt: endedAt.toISOString(),
             durationSec: Math.floor((endedAt.getTime() - startedAt.getTime()) / 1000),
             message: 'Deployment successful',
-            logPath: path.join(config.internal?.logdir || 'logs', `${startedAt.toISOString().slice(0, 10)}.log`),
+            logPath: path.join(
+                config.internal?.logdir || 'logs',
+                `${startedAt.toISOString().slice(0, 10)}.log`,
+            ),
         };
 
         await saveStatus(status);
