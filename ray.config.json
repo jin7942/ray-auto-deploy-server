@@ -6,7 +6,12 @@
             "branch": "main",
             "docker": {
                 "type": "compose",
-                "path": "/srv/deploy/nginx-config/deploy/usedmarket/docker-compose.yml"
+                "image": "used-market-backend",
+                "containername": "used-market-backend",
+                "path": {
+                    "compose": "/srv/deploy/nginx-config/deploy/usedmarket/docker-compose.yml",
+                    "dockerfile": "./Dockerfile"
+                }
             }
         },
         {
@@ -15,7 +20,12 @@
             "branch": "master",
             "docker": {
                 "type": "compose",
-                "path": "/srv/deploy/nginx-config/deploy/usedmarket/docker-compose.yml"
+                "image": "upload",
+                "containername": "upload",
+                "path": {
+                    "compose": "/srv/deploy/nginx-config/deploy/usedmarket/docker-compose.yml",
+                    "dockerfile": "./Dockerfile"
+                }
             }
         },
         {
@@ -24,7 +34,12 @@
             "branch": "main",
             "docker": {
                 "type": "compose",
-                "path": "/srv/deploy/nginx-config/deploy/usedmarket/docker-compose.yml"
+                "image": "used-market-frontend",
+                "containername": "used-market-frontend",
+                "path": {
+                    "compose": "/srv/deploy/nginx-config/deploy/usedmarket/docker-compose.yml",
+                    "dockerfile": "./Dockerfile"
+                }
             }
         },
         {
@@ -33,7 +48,12 @@
             "branch": "main",
             "docker": {
                 "type": "compose",
-                "path": "/srv/deploy/nginx-config/deploy/dockwatch/docker-compose.yml"
+                "image": "dockwatch-frontend",
+                "containername": "dockwatch-frontend",
+                "path": {
+                    "compose": "/srv/deploy/nginx-config/deploy/dockwatch/docker-compose.yml",
+                    "dockerfile": "./frontend/Dockerfile"
+                }
             }
         },
         {
@@ -42,7 +62,12 @@
             "branch": "main",
             "docker": {
                 "type": "compose",
-                "path": "/srv/deploy/nginx-config/deploy/ray-auto-deploy-server/docker-compose.yml"
+                "image": "ray-auto-deploy-server",
+                "containername": "ray-auto-deploy-server",
+                "path": {
+                    "compose": "/srv/deploy/nginx-config/deploy/dockwatch/docker-compose.yml",
+                    "dockerfile": "./Dockerfile"
+                }
             }
         }
     ]
