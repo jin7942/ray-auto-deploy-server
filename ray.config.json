@@ -29,7 +29,7 @@
             }
         },
         {
-            "name": "used-market_frontend",
+            "name": "used_market_frontend",
             "repo": "https://github.com/jin7942/used_market_frontend.git",
             "branch": "main",
             "docker": {
