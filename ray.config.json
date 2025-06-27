@@ -69,6 +69,20 @@
                     "compose": "/srv/deploy/nginx-config/deploy/dockwatch/docker-compose.yml"
                 }
             }
+        },
+        {
+            "name": "nginx-config",
+            "repo": "https://github.com/jin7942/nginx-config.git",
+            "branch": "main",
+            "docker": {
+                "type": "compose",
+                "image": "nginx:alpine",
+                "containername": "jin-gateway",
+                "path": {
+                    "dockerfile": "./Dockerfile",
+                    "compose": "/srv/deploy/nginx-config//docker-compose.yml"
+                }
+            }
         }
     ]
 }
