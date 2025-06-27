@@ -80,7 +80,7 @@
                 "containername": "jin-gateway",
                 "path": {
                     "dockerfile": "./Dockerfile",
-                    "compose": "/srv/deploy/nginx-config//docker-compose.yml"
+                    "compose": "/srv/deploy/nginx-config/docker-compose.yml"
                 }
             }
         }
